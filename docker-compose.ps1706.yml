@@ -6,7 +6,7 @@ services:
     platform: linux/x86_64
     environment:
       - MYSQL_ROOT_PASSWORD=admin
-      - MYSQL_DATABASE=prestashop_16023
+      - MYSQL_DATABASE=prestashop_1706
     expose:
       - 3306
     ports:
@@ -14,19 +14,19 @@ services:
     volumes:
       - "./tmp/db_data:/var/lib/mysql"
 
-  prestashop-16123:
-    image: prestashop/prestashop:1.6.1.23
+  prestashop-1706:
+    image: prestashop/prestashop:1.7.0.6
     environment:
       - DB_SERVER=mysql
-      - DB_NAME=prestashop_16023
+      - DB_NAME=prestashop_1706
       - DB_USER=root
       - DB_PASSWD=admin
       - PS_DEV_MODE=1
       - PS_INSTALL_AUTO=1
       - PS_ERASE_DB=1
       - PS_INSTALL_DB=1
-      - PS_DOMAIN=localhost:8081
-      - PS_SHOP_URL=localhost:8081
+      - PS_DOMAIN=localhost:8083
+      - PS_SHOP_URL=localhost:8083
       - PS_COUNTRY=FR
       - PS_LANGUAGE=fr
       - PS_FOLDER_ADMIN=almin
@@ -34,7 +34,7 @@ services:
       - ADMIN_MAIL=admin@test.prestashop.com
       - ADMIN_PASSWD=test2test
     ports:
-      - "8081:80"
+      - "8083:80"
     volumes:
       - ./alma:/var/www/html/modules/alma
       - ./docker/php-customization.ini:/usr/local/etc/php/conf.d/php-customization.ini
