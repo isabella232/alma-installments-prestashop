@@ -27,7 +27,7 @@ services:
       - PS_INSTALL_DB=1
       - PS_DOMAIN=localhost:8086
       - PS_SHOP_URL=localhost:8086
-      - PS_COUNTRY=EN
+      - PS_COUNTRY=US
       - PS_LANGUAGE=en
       - PS_FOLDER_ADMIN=almin
       - PS_FOLDER_INSTALL=alminstall
