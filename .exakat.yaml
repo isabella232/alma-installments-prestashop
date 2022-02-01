@@ -1,0 +1,9 @@
+project_name: Prestashop
+file_extensions: php,php3,phtml
+ignore_dirs:
+    - /assets
+    - /cache
+    - /css
+    - /data
+    - /var
+    - /vendor
