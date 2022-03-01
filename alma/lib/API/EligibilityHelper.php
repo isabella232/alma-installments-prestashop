@@ -92,6 +92,9 @@ class EligibilityHelper
         try {
             if (!empty($activePlans)) {
                 $almaEligibilities = $alma->payments->eligibility($paymentData);
+                if ($almaEligibilities instanceof Eligibility) {
+                    $almaEligibilities = [$almaEligibilities];
+                }
             }
         } catch (RequestError $e) {
             Logger::instance()->error(
