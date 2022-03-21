@@ -38,6 +38,7 @@ if (!defined('ALMA_MODE_LIVE')) {
 
 use Alma\PrestaShop\Forms\ExcludedCategoryAdminFormBuilder;
 use Alma\PrestaShop\Forms\PaymentButtonAdminFormBuilder;
+use Alma\PrestaShop\Forms\ShareOfCheckoutAdminFormBuilder;
 use Alma\PrestaShop\Model\CategoryAdapter;
 use Category;
 use Configuration;
@@ -81,6 +82,7 @@ class Settings
         $configKeys = [
             'ALMA_FULLY_CONFIGURED',
             'ALMA_ACTIVATE_LOGGING',
+            ShareOfCheckoutAdminFormBuilder::ALMA_ACTIVATE_SHARE_OF_CHECKOUT,
             'ALMA_API_MODE',
             'ALMA_MERCHANT_ID',
             'ALMA_LIVE_API_KEY',
@@ -127,6 +129,11 @@ class Settings
     public static function canLog()
     {
         return (bool) (int) self::get('ALMA_ACTIVATE_LOGGING', false);
+    }
+
+    public static function canShareOfCheckout()
+    {
+        return (bool) (int) self::get(ShareOfCheckoutAdminFormBuilder::ALMA_ACTIVATE_SHARE_OF_CHECKOUT, false);
     }
 
     public static function getActiveMode()
